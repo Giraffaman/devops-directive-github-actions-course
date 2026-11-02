@@ -8,6 +8,6 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - name: run-workflow
-              uses: ./mine-dig-test.yaml
+              uses: ./mine-say-hi-workflow.yaml
               with: 
                 name: 'sir johnson'
