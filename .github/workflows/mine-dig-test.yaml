@@ -17,8 +17,8 @@ jobs:
         steps:
             - name: "say-hello"
               env:
-                NAME: ${{ inputs.name }} | 'joe'
-              run: echo "hi there, ${{ inputs.name }}"
+                NAME: "${{ inputs.name }} | 'joe'"
+              run: echo "hi there, $NAME"
               shell: bash
 
     bye:
