@@ -1,15 +1,29 @@
 name: hello-test
 
 on:
-    workflow_dispatch:
+    push:
+      branches:
+        - main
 
+    workflow_dispatch:
+        inputs:
+          name:
+            type: string
+            default: "buddy"
+            
 jobs:
     hello:
         runs-on: ubuntu-22.04
         steps:
             - name: "say-hello"
-              run: echo "hi there, "
+              run: echo "hi there, ${{ inputs.name }}"
               shell: sh
+              env:
+                BYE_TO: ${{ inputs.name }}
             - name: "say-bye"
-              run: print("See ya, !")
+              run: print("See ya, $BYE_TO!")
               shell: python
+
+
+
+        
