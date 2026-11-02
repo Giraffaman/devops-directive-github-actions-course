@@ -6,12 +6,18 @@ on:
         - main
 
     workflow_dispatch:
-        inputs:
-          name:
-            type: string
-            default: "buddy"
+      inputs:
+        name:
+          type: string
+          default: "buddy"
 
     workflow_call:
+      inputs:
+        name:
+          type: string
+          default: "buddy"
+        greeter_name:
+          type: string
             
 jobs:
     hello:
@@ -20,7 +26,6 @@ jobs:
             - name: "say-hello"
               run: echo "hi there, ${{ inputs.name || 'joe' }}"
               shell: bash
-
     bye:
         needs: hello
         runs-on: ubuntu-22.04
@@ -44,3 +49,11 @@ jobs:
         steps:
             - name: "display event playload"
               run: cat $GITHUB_EVENT_PATH
+    sign-greeter:
+      if: ${{ github.event_name == 'workflow_call' }}
+      runs-on: ubuntu-22.04
+      steps:
+        - name: "sign as greeter"
+          env:
+            GREETER: ${{ inputs.greeter_name || 'xoxo' }}
+          run: echo "Regards,\n"

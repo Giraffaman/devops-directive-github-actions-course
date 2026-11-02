@@ -3,11 +3,9 @@ on:
     workflow_dispatch
 
 jobs:
-    run-another-workflow-job:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - name: run-workflow
-              uses: ./mine-say-hi-workflow.yaml
-              with: 
-                name: 'sir johnson'
+  run-another-workflow-job:
+    # runs-on: ubuntu-latest - not applicable when re-using other workflows
+    # re-usable workflows need to be called on job-level, unlike actions which get called at step-level
+    uses: ./.github/workflows/mine-say-hi-workflow.yaml
+    with: 
+        name: 'sir johnson'
