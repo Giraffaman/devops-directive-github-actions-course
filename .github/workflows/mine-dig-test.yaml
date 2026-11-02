@@ -18,8 +18,7 @@ jobs:
             - name: "say-hello"
               run: echo "hi there, ${{ inputs.name }}"
               shell: sh
-              env:
-                BYE_TO: ${{ inputs.name }}
+
     bye:
         needs: hello
         runs-on: ubuntu-22.04
@@ -27,7 +26,8 @@ jobs:
             - name: "say-bye"
               run: print("See ya, $BYE_TO!")
               shell: python
-
+              env:
+                BYE_TO: ${{ inputs.name }}
 
 
 
