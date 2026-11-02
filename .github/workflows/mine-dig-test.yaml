@@ -23,13 +23,13 @@ jobs:
         needs: hello
         runs-on: ubuntu-22.04
         env:
-          BYE_TO: ${{ inputs.name }}
+          BYE_TO: ${{ inputs.name || 'joe' }}
         steps:
             - name: "say-bye"
               if: ${{ env.BYE_TO != 'sir johnson' }}
               run: |
-                import os;
-                print("See ya, " + os.getenv('BYE_TO', 'joe'))
+                import os
+                print("See ya, " + os.getenv('BYE_TO'))
               shell: python
             - name: "farewell lord johnson"
               if: ${{ env.BYE_TO == 'sir johnson' }}
