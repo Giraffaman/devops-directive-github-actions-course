@@ -16,6 +16,8 @@ jobs:
         runs-on: ubuntu-22.04
         steps:
             - name: "say-hello"
+              env:
+                NAME: ${{ inputs.name }} | 'joe'
               run: echo "hi there, ${{ inputs.name }}"
               shell: bash
 
