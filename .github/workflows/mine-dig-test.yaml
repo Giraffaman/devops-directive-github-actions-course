@@ -20,9 +20,14 @@ jobs:
               shell: sh
               env:
                 BYE_TO: ${{ inputs.name }}
+    bye:
+        needs: hello
+        runs-on: ubuntu-22.04
+        steps:
             - name: "say-bye"
               run: print("See ya, $BYE_TO!")
               shell: python
+
 
 
 
