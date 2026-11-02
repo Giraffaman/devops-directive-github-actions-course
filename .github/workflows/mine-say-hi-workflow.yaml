@@ -50,6 +50,8 @@ jobs:
             - name: "display event playload"
               run: cat $GITHUB_EVENT_PATH
     sign-greeter:
+      needs:
+        [hello, bye]
       if: ${{ github.event_name == 'workflow_call' }}
       runs-on: ubuntu-22.04
       steps:
