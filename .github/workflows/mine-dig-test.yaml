@@ -22,13 +22,47 @@ jobs:
     bye:
         needs: hello
         runs-on: ubuntu-22.04
+        env:
+          BYE_TO: ${{ inputs.name }}
         steps:
             - name: "say-bye"
               run: print("See ya, $BYE_TO!")
-              shell: python
-              env:
-                BYE_TO: ${{ inputs.name }}
+              if: env.$BYE_TO != "joe"
+              shell: bash
+name: hello-test
 
+on:
+    push:
+      branches:
+        - main
 
+    workflow_dispatch:
+        inputs:
+          name:
+            type: string
+            default: "buddy"
+            
+jobs:
+    hello:
+        runs-on: ubuntu-22.04
+        steps:
+            - name: "say-hello"
+              run: echo "hi there, ${{ inputs.name }}"
+              shell: sh
 
-        
+    bye:
+        needs: hello
+        runs-on: ubuntu-22.04
+        env: 
+            BYE_TO: ${{ inputs.name }}
+        steps:
+            - name: "say-bye"
+              if: ${{ env.BYE_TO != "joe" }}
+              run: print("See ya, $BYE_TO!")
+              shell: bash
+    print-event:
+        if:  ${{ env.GITHUB_EVENT_NAME == "workflow_dispatched" }}
+        runs-on: ubuntu-22.04
+        steps:
+            - name: "display event playload"
+              run: cat $GITHUB_EVENT_PATH
