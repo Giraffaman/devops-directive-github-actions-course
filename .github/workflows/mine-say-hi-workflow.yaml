@@ -67,4 +67,4 @@ jobs:
         - name: "sign as greeter"
           env:
             GREETER: ${{ inputs.greeter_name || 'xoxo' }}
-          run: echo "Regards,\n"
+          run: echo "Regards,\n$GREETER"
