@@ -1,3 +1,9 @@
+
+
+# add status badge for workflow "min-say-hi-workflow.yml":
+![Hello-World workflow](https://github.com/Giraffaman/devops-directive-github-actions-course/blob/main/.github/workflows/mine-say-hi-workflow.yaml/badge.svg)
+
+
 # DevOps Directive GitHub Actions Course
 
 This is the companion repo to: [GitHub Actions: Beginner to Pro](https://courses.devopsdirective.com/github-actions-beginner-to-pro)
