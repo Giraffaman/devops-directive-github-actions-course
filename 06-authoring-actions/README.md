@@ -3,7 +3,7 @@
 This module demonstrates how to build custom GitHub Actions and reusable workflows. Each example below has a workflow located in `.github/workflows/` following the pattern `06-authoring-actions--<name>.yaml`.
 
 # add status badge for workflow "min-say-hi-workflow.yml":
-![Hello-World workflow](https://github.com/Giraffaman/devops-directive-github-actions-course/.github/workflows/06-authoring-actions/workflows/min-say-hi-workflow.yml/badge.svg?branch=main)
+![Hello-World workflow](https://github.com/Giraffaman/devops-directive-github-actions-course/.github/workflows/06-authoring-actions/workflows/mine-say-hi-workflow.yaml/badge.svg?branch=main)
 
 
 ## Composite Action
