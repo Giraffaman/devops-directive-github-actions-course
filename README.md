@@ -1,7 +1,8 @@
 
 
 # add status badge for workflow "min-say-hi-workflow.yml":
-![Hello-World workflow](https://github.com/Giraffaman/devops-directive-github-actions-course/blob/main/.github/workflows/mine-say-hi-workflow.yaml/badge.svg)
+# --> need to use URL via actions tab, NOT raw yaml file...
+![Hello-World workflow](https://github.com/Giraffaman/devops-directive-github-actions-course/actions/workflows/mine-say-hi-workflow.yaml/badge.svg)
 
 
 # DevOps Directive GitHub Actions Course
