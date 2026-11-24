@@ -9,3 +9,4 @@ jobs:
     uses: ./.github/workflows/mine-say-hi-workflow.yaml
     with: 
         name: 'sir johnson'
+        is_called: true
